@@ -74,7 +74,7 @@ echo "MYSQL Servers has been installed now installing PhpMyAdmin"
 
 echo "PhpMyAdmin have been installed now Add # to Require ip 127.0.0.1 and Require ip ::1
 Add Require all granted. Then save. Ctrl + X then Y then [Enter]"
- sleep 2
+ sleep 5
   sudo nano /etc/httpd/conf.d/phpMyAdmin.conf
 
 echo "Installing dependencies"
@@ -89,7 +89,7 @@ echo "dependencies have been installed now restarting Apache"
 echo "You now need to Replace All: AllowOverride None with AllowOverride All. (Total 4 to change)
 Then save. Ctrl + X then Y then [Enter]
 "
- sleep 2
+ sleep 5
   sudo nano /etc/httpd/conf/httpd.conf
 
 
