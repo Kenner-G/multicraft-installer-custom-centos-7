@@ -1,173 +1,356 @@
+
 #!/bin/bash
+# The MIT License (MIT)
 
-#/**
-# *
-# *   Copyright © 2010-2016 by MegaByteHosting, BlueLeafHosting, DavidBrockway, Kenner All rights reserved.
-# *   This script is inteneded for the use of megabytehosting and blueleafhosting but you may with to use it we do not give 
-# *   support to anyone who used this script. We hope you like it use it at your own risk!
-# *   
-# *
-# **/
+# Copyright (c) 2016 Cory Gillenkirk
 
-read -p "Do you wish to install Multicraft? (y/n) Please keep in mind that we provide no support for this script. Report any issues on our GitHub repo. (y/n)" CONT
-if [ "$CONT" = "y" ]; then
- echo
- echo "***"
- echo "*** Welcome to Multicraft 7 centos install script! (Custom)"
- echo "***"
- echo
- echo "This installer will help you get Multicraft up and running also install all the packages and dependencies."
- echo "No changes are made to the system until all of the required information has been collected."
- echo
- echo "NOTE: This script automates the installation as described on the Multicraft website. Use it at your own risk."
- echo "Custom coded and edited by David Brockway."
- echo
- echo   
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
 
- echo "Updating your centos system os1"
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
 
- sleep 1
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
 
-  yum -y update
+# Supported Versions: Ubuntu, Debian and CentOS 6 and 7.
 
-### Installation
-
- echo "Installing httpd, unzip, zip"
- sleep 1
-   yum -y install httpd unzip zip nano
-
-
- echo "Starting Apache"
- sleep 1
-  sudo systemctl start httpd
-  
- echo "Enabling Apache"
- sleep 1
-  sudo systemctl enable httpd
-  
- echo "Checking the status of Apache"
- sleep 1
-  sudo Checking the status of Apache
-  
- echo "Apache has been isnatlled now installing Mysql-mariadb"
- sleep 1
-  sudo yum -y install mariadb-server mariadb
-  
- echo "Starting Mysql-mariadb"
- sleep 1
-  sudo systemctl start mariadb
-
- echo "Enabling Mysql-mariadb"
- sleep 1
-  sudo systemctl enable mariadb
-
- echo "Checking the status of Mysql-mariadb"
- sleep 1
-  sudo systemctl status mariadb
-  
- echo "Starting Mysql-mariadb secure setup, user should enter the details they want for the MYSQL Server"
- sleep 1
-  sudo sudo mysql_secure_installation
-  
- echo "MYSQL Servers has been installed now installing PhpMyAdmin"
- sleep 1
-  yum install epel-release
-  yum install phpmyadmin
-
- echo "PhpMyAdmin have been installed now Add # to Require ip 127.0.0.1 and Require ip ::1
- Add Require all granted. Then save. Ctrl + X then Y then [Enter]"
- sleep 5
-  sudo nano /etc/httpd/conf.d/phpMyAdmin.conf
-
- echo "Installing dependencies"
- sleep 1
-  yum install php php-mysql php-gd php-pear php-common php-mbstring php-ldap php-odbc php-xml php-xmlrpc php-bcmath php-mysql php-pdo wget vim tar zip curl java-1.8.0-openjdk
-  yum install httpd php php-common php-gd php-mbstring php-ldap php-odbc php-pear php-xml php-xmlrpc php-bcmath php-mysql php-pdo wget vim tar zip curl java-1.8.0-openjdk
-
- echo "dependencies have been installed now restarting Apache"
- sleep 2
-  sudo systemctl restart httpd.service
-
- echo "You now need to Replace All: AllowOverride None with AllowOverride All. (Total 4 to change)
-Then save. Ctrl + X then Y then [Enter]
-"
- sleep 5
-  sudo nano /etc/httpd/conf/httpd.conf
-
-
- echo "Restarting apache"
- sleep 1
-  sudo systemctl restart httpd.service
-
-
- echo "Disabling setenforce"
- sleep 1
-  sudo  setenforce 0
-  
- echo "Downloading Multicraft"
- sleep 1
-  wget --content-disposition http://www.multicraft.org/download/index?arch=linux64
-
-
- echo "Extracting multicraft"
- sleep 2
-  tar -xzf multicraft*.tar.gz
-
-
-    cd multicraft/
-
-
-
- echo "Running multicraft install script"
- sleep 4
-  sudo ./setup.sh
-
- echo "Now Create Database
-Open Internet Browser and go to http://your_server_ip/Phpmyadmin, then Login with Username: root Password: Your created (MySQL) password.
-Open Tab database tab in phpmyadmin. Then create database: multicraft_panel and multicraft_daemon"
- sleep 1
-
- echo "Multicraft Install.php
-Continue the setup in http://your_server_ip/html/multicraft/install.php"
- sleep 4
- 
- echo "Multicraft Install.php instructions, 
-1. Press Continue.
-2. Press Continue Again if Configuration File Found.
-3. Setup the Panel MySQL - View Press Save, Then Initialize Database, ThenContinue.
-4. Login using username: admin password: admin
-5. Setup the Daemon MySQL - View Press Save, Then Initialize Database, Then Continue.
-6. In Basic Configuration go to Password for daemon connections and Enter the password you created for the Daemon in Step:9-10 Default Password: none
-7. Press Save and Continue.
-8. Open Terminal - (PuTTy) and start the Daemon(s)."
- sleep 5
-
- echo "Starting multicraft daemon"
- sleep 1
-  sudo /home/minecraft/multicraft/bin/multicraft start
-  
- echo
- echo "***"
- echo "*** You have successfully install Multicraft on centos 7"
- echo "***"
- echo
- echo "This installer will help you get Multicraft up and running also install all the packages and dependencies."
- echo "No changes are made to the system until all of the required information has been collected."
- echo
- echo "NOTE: Thank you for using the custom script to install multicraft centos 7.
- echo "We would we would appreciate if you could share this with your friends to help
- and support this project. Also it shows how easy multicraft is to install on centos 7 with this 
- custom script."
- echo "Created by David Brockway and Kenner, if you would like to contribute to this project you can do so via my github 
- link https://goo.gl/v8jYNT"
- echo
- echo
- 
-
-echo "Exiting MultiCraft centos 7 installer script!"
- sleep 1
-  quit
-else
-  echo "Oh well, you do not want to use our installer. See ya!";
-  cd ~
+# Update Resolve Servers
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+echo "nameserver 8.8.4.4" >> /etc/resolv.conf
+# File Check
+if [ -f /etc/network/interfaces ]; then
+sed -i 's/dns-nameservers \(.*\)/\Edns-nameservers 8.8.8.8 8.8.4.4/g' /etc/network/interfaces
 fi
+
+# Update
+apt-get -y update
+yum -y update
+
+# Install: lsb-release
+apt-get -y install lsb-release
+yum -y install redhat-lsb
+
+# Get Public IP
+IP="$(curl -4 icanhazip.com)"
+
+# Password Generator
+# MySQL, Multicraft Daemon, Multicraft Panel, Multicraft Admin, phpMyAdmin BlowFish Secret
+export MySQLRoot=`cat /dev/urandom | tr -dc A-Za-z0-9 | dd bs=25 count=1 2>/dev/null`
+export Daemon=`cat /dev/urandom | tr -dc A-Za-z0-9 | dd bs=25 count=1 2>/dev/null`
+export Panel=`cat /dev/urandom | tr -dc A-Za-z0-9 | dd bs=25 count=1 2>/dev/null`
+export AdminPassword=`cat /dev/urandom | tr -dc A-Za-z0-9 | dd bs=25 count=1 2>/dev/null`
+export BlowFish=`cat /dev/urandom | tr -dc A-Za-z0-9 | dd bs=32 count=1 2>/dev/null`
+
+# Detecting Distrubution of Linux
+# Ubuntu, Debian and CentOS
+DISTRO="$(lsb_release -si)"
+VERSION="$(lsb_release -sr | cut -d. -f1)"
+OS="$DISTRO$VERSION"
+
+# Begin Ubuntu
+if [ "${DISTRO}" = "Ubuntu" ] ; then
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8507EFA5
+echo "deb http://repo.percona.com/apt "$(lsb_release -sc)" main" | sudo tee /etc/apt/sources.list.d/percona.list
+echo "deb-src http://repo.percona.com/apt "$(lsb_release -sc)" main" | sudo tee -a /etc/apt/sources.list.d/percona.list
+apt-get -y purge `dpkg -l | grep php| awk '{print $2}' |tr "\n" " "`
+apt-get install -y language-pack-en-base
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+apt-get install -y software-properties-common
+add-apt-repository -y ppa:ondrej/php
+apt-get update
+apt-get -y upgrade
+export DEBIAN_FRONTEND="noninteractive"
+apt-get -y install apache2 php5.6 php5.6-mysql sqlite php5.6-gd php5.6-mbstring php5.6-sqlite wget nano zip unzip percona-server-server-5.6 curl git sudo
+# Begin Debian
+elif [ "${DISTRO}" = "Debian" ] ; then
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8507EFA5
+echo "deb http://repo.percona.com/apt "$(lsb_release -sc)" main" | sudo tee /etc/apt/sources.list.d/percona.list
+echo "deb-src http://repo.percona.com/apt "$(lsb_release -sc)" main" | sudo tee -a /etc/apt/sources.list.d/percona.list
+apt-get -y purge `dpkg -l | grep php| awk '{print $2}' |tr "\n" " "`
+export DEBIAN_FRONTEND="noninteractive"
+apt-get -y install apache2 php5 php5-mysql sqlite php5-gd php5-sqlite wget nano zip unzip percona-server-server-5.6 curl git sudo
+# Begin CentOS
+elif [ "${DISTRO}" = "CentOS" ] ; then
+# Begin CentOS6
+if [ "${OS}" = "CentOS6" ] ; then
+yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+yum -y install https://mirror.webtatic.com/yum/el6/latest.rpm
+echo 0 >/selinux/enforce
+# Begin CentOS7
+elif [ "${OS}" = "CentOS7" ] ; then
+yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum -y install https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+echo 0 > /sys/fs/selinux/enforce
+fi
+# Begin CentOS6 and CentOS7 File Install
+yum -y install http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
+yum -y remove *mysql* *mariadb* php-*
+mv /var/lib/mysql /var/lib/mysql-old
+yum -y update
+yum -y install wget nano zip unzip httpd Percona-Server-client-56.x86_64 Percona-Server-devel-56.x86_64 Percona-Server-server-56.x86_64 Percona-Server-shared-56.x86_64 php56w php56w-pdo php56w-mysql php56w-mbstring sqlite php56w-gd freetype curl mlocate git sudo
+/sbin/chkconfig --level 2345 httpd on;
+sed -i 's/SELINUX=enforcing/\ESELINUX=disabled/g' /etc/selinux/config
+fi
+
+# Set MySQL Password
+/sbin/service mysql start
+service mysql start
+mysql -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('${MySQLRoot}');"
+
+# Save Generated MySQL Root Password.
+cd /root/
+cat > .my.cnf << eof
+[client]
+user="root"
+pass="${MySQLRoot}"
+eof
+
+# Multicraft Databases
+mysql -e "CREATE DATABASE daemon;"
+mysql -e "CREATE DATABASE panel;"
+mysql -e "GRANT ALL ON daemon.* to daemon@localhost IDENTIFIED BY '${Daemon}';"
+mysql -e "GRANT ALL ON panel.* to panel@localhost IDENTIFIED BY '${Panel}';"
+mysql -e "GRANT ALL ON daemon.* to daemon@'%' IDENTIFIED BY '${Daemon}';"
+mysql -e "GRANT ALL ON panel.* to panel@'%' IDENTIFIED BY '${Panel}';"
+
+WebRoot="/var/www/html"
+
+# Multicraft Download
+mkdir /home/root/
+cd /home/root/
+wget --no-check-certificate http://multicraft.org/download/linux64 -O multicraft.tar.gz
+tar -xf multicraft.tar.gz
+rm -fv multicraft.tar.gz
+cd multicraft
+rm -rf jar api setup.sh eula.txt readme.txt
+mv panel multicraft
+mv multicraft.conf.dist multicraft.conf
+mv multicraft ${WebRoot}/
+mkdir jar
+cd jar
+wget --no-check-certificate "https://github.com/JustOneMoreBlock/shell-scripts/blob/master/files/multicraft-jar-confs.zip?raw=true" -O multicraft-jar-confs.zip;
+unzip -o multicraft-jar-confs.zip
+rm -fv multicraft-jar-confs.zip
+wget http://s3.amazonaws.com/MCProHosting-Misc/Spigot/Spigot.jar -O Spigot.jar
+wget http://s3.amazonaws.com/MCProHosting-Misc/PaperSpigot/PaperSpigot.jar -O PaperSpigot.jar
+wget http://ci.md-5.net/job/BungeeCord/lastSuccessfulBuild/artifact/bootstrap/target/BungeeCord.jar -O Bungeecord.jar
+cd /home/root/multicraft/
+
+# Multicraft Panel
+ProtectedConf="/protected/config/config.php"
+cd ${WebRoot}/multicraft/
+mv protected /
+mv ${ProtectedConf}.dist ${ProtectedConf}
+chmod 777 assets
+chmod 777 /protected/runtime/
+chmod 777 ${ProtectedConf}
+sed -i 's/dirname(__FILE__)./\E/g' index.php
+rm -fv api.php install.php
+
+# Automated phpMyAdmin Installer
+cd ${WebRoot}/
+git clone --depth=1 --branch=STABLE git://github.com/phpmyadmin/phpmyadmin.git phpMyAdmin
+mv ${WebRoot}/phpMyAdmin/config.sample.inc.php ${WebRoot}/phpMyAdmin/config.inc.php
+sed -i "s/\$cfg\[.blowfish_secret.\]\s*=.*/\$cfg['blowfish_secret'] = '${BlowFish}';/" ${WebRoot}/phpMyAdmin/config.inc.php
+
+# php.ini Auto-Detector
+PHP="$(php -r "echo php_ini_loaded_file();")"
+rm -fv /etc/php.ini
+ln -s ${PHP} /etc/php.ini
+
+# Modify php.ini Settings
+sed -i 's/upload_max_filesize = \(.*\)/\Eupload_max_filesize = 100M/g' /etc/php.ini
+sed -i 's/post_max_size = \(.*\)/\Epost_max_size = 100M/g' /etc/php.ini
+sed -i 's/max_execution_time = \(.*\)/\Emax_execution_time = 300/g' /etc/php.ini
+sed -i 's/max_input_time = \(.*\)/\Emax_input_time = 600/g' /etc/php.ini
+
+# Memory Checker
+MemTotal="$(awk '/MemTotal/ {print $2}' /proc/meminfo)"
+Memory="$((${MemTotal} / 1024))"
+
+# Multicraft Config
+MulticraftConf="/home/root/multicraft/multicraft.conf"
+sed -i 's/user =\(.*\)/\Euser = root/g' ${MulticraftConf}
+sed -i 's/webUser =\(.*\)/\EwebUser = /g' ${MulticraftConf}
+sed -i 's/\#id =\(.*\)/\Eid = 1/g' ${MulticraftConf}
+sed -i 's/\#database = mysql\(.*\)/\Edatabase = mysql:host=127.0.0.1;dbname=daemon/g' ${MulticraftConf}
+sed -i 's/\#dbUser =\(.*\)/\EdbUser = daemon/g' ${MulticraftConf}
+sed -i "s/\#dbPassword =\(.*\)/\EdbPassword = ${Daemon}/g" ${MulticraftConf}
+sed -i 's/\#name =\(.*\)/\Ename = Server 1/g' ${MulticraftConf}
+sed -i "s/#totalMemory =\(.*\)/\EtotalMemory = ${Memory}/g" ${MulticraftConf}
+sed -i "s/\(.*\)baseDir =\(.*\)/\EbaseDir = \/home\/root\/multicraft\//g" ${MulticraftConf}
+sed -i 's/\#multiuser =\(.*\)/\Emultiuser = true/g' ${MulticraftConf}
+sed -i "s/\(.*\)forbiddenFiles\(.*\)/\#forbiddenFiles = /g" ${MulticraftConf}
+sed -i "s/\ip = 127.0.0.1/\Eip = ${IP}/g" ${MulticraftConf}
+
+# Multicraft Panel Config
+cd /protected/config/
+cat > config.php << eof
+<?php
+return array (
+  'panel_db' => 'mysql:host=localhost;dbname=panel',
+  'daemon_db' => 'mysql:host=localhost;dbname=daemon',
+  'daemon_password' => 'none',
+  'superuser' => 'admin',
+  'api_enabled' => false,
+  'api_allow_get' => false,
+  'user_api_keys' => false,
+  'admin_name' => 'Multicraft Administrator',
+  'admin_email' => '',
+  'show_serverlist' => 'user',
+  'hide_userlist' => true,
+  'ftp_client_disabled' => false,
+  'ftp_client_passive' => false,
+  'templates_disabled' => false,
+  'ajax_updates_disabled' => false,
+  'ajax_update_interval' => '2000',
+  'timeout' => '5',
+  'mark_daemon_offline' => '10',
+  'theme' => '',
+  'mobile_theme' => '',
+  'user_theme' => false,
+  'language' => '',
+  'login_tries' => '4',
+  'login_interval' => '300',
+  'ajax_serverlist' => false,
+  'status_banner' => true,
+  'mail_welcome' => false,
+  'mail_assign' => false,
+  'sqlitecache_schema' => false,
+  'sqlitecache_commands' => false,
+  'user_mysql' => true,
+  'user_mysql_host' => 'localhost',
+  'user_mysql_user' => 'root',
+  'user_mysql_pass' => '${MySQLRoot}',
+  'user_mysql_prefix' => 'db_',
+  'user_mysql_admin' => 'http://${IP}/phpMyAdmin/index.php',
+  'show_repairtool' => 'none',
+  'register_disabled' => true,
+  'reset_token_hours' => '0',
+  'default_ignore_ip' => false,
+  'default_display_ip' => '',
+  'show_memory' => true,
+  'log_bottomup' => true,
+  'admin_ips' => '',
+  'api_ips' => '',
+  'enable_csrf_validation' => true,
+  'enable_cookie_validation' => true,
+  'use_bukget' => false,
+  'auto_jar_submit' => 'yes',
+  'pw_crypt' => 'sha512_crypt',
+  'ip_auth' => true,
+  'cpu_display' => 'core',
+  'ram_display' => '',
+  'enable_disk_quota' => false,
+  'block_chat_characters' => true,
+  'log_console_commands' => false,
+  'show_delete_all_players' => 'superuser',
+  'kill_button' => 'none',
+  'fill_port_gaps' => true,
+  'support_legacy_daemons' => false,
+  'panel_db_user' => 'panel',
+  'panel_db_pass' => '${Panel}',
+  'daemon_db_user' => 'daemon',
+  'daemon_db_pass' => '${Daemon}',
+  'min_pw_length' => '',
+  'default_displayed_ip' => '',
+  'support_legacy_api' => false,
+);
+eof
+
+# Auto Java Installer
+if [ "${DISTRO}" = "Ubuntu" ] ; then
+sudo apt-get -y install software-properties-common python-software-properties debconf-utils
+sudo apt-get -y update
+sudo add-apt-repository ppa:webupd8team/java -y
+sudo apt-get -y update
+sudo echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
+sudo echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 seen true" | debconf-set-selections
+sudo apt-get -y install oracle-java8-installer
+elif [ "${DISTRO}" = "Debian" ] ; then
+echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/java-8-debian.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
+sudo apt-get -y update
+sudo apt-get -y install debconf-utils
+sudo apt-get -y update
+sudo echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
+sudo echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 seen true" | debconf-set-selections
+sudo apt-get -y install oracle-java8-installer
+elif [ "${DISTRO}" = "CentOS" ] ; then
+# Author: Mike G. aka metalcated and partially forked from n0ts (https://github.com/metalcated/)
+wget https://raw.githubusercontent.com/JustOneMoreBlock/shell-scripts/master/install_java.sh -O install_java.sh
+chmod +x install_java.sh
+sh install_java.sh jre8 rpm
+rm -fv install_java.sh
+fi
+
+java -version
+
+# Restart Services
+service apache2 stop
+service apache2 start
+/sbin/service httpd stop
+/sbin/service httpd start
+
+# Output Vars
+cd /root/
+cat > logins.conf << eof
+# Stored Passwords
+MySQL Root Password: ${MySQLRoot}
+Multicraft Daemon: ${Daemon}
+Multicraft Panel: ${Panel}
+
+# Control Panel Link:
+http://${IP}/multicraft/index.php
+Username: admin
+Password: ${AdminPassword}
+
+# phpMyAdmin Link
+http://${IP}/phpMyAdmin/index.php
+Username: root
+Password: ${MySQLRoot}
+eof
+
+cat /root/logins.conf
+
+# Automatically Import MySQL Database Schema's, thus removing the web installer. :)
+mysql -p${Panel} -u panel -D panel < /protected/data/panel/schema.mysql.sql
+mysql -p${Daemon} -u daemon -D daemon < /protected/data/daemon/schema.mysql.sql
+
+# Daemon MySQL Changes
+mysql -p${Daemon} -u daemon -D daemon -e "INSERT INTO setting VALUES ('defaultServerIp', '1');"
+mysql -p${Daemon} -u daemon -D daemon -e "INSERT INTO setting VALUES ('minecraftEula', 'auto');"
+
+# Auto Start
+mv /etc/rc.local /etc/rc.local-old
+cd /etc/
+cat > rc.local << eof
+/home/root/multicraft/bin/multicraft start
+/sbin/iptables -F
+/sbin/iptables -X
+eof
+chmod +x /etc/rc.local
+/etc/rc.local
+
+# TESTED: Everything above should work on all supported distros.
+
+# Configure New Admin Password
+# SaltPassword="$(python -c 'import crypt; print crypt.crypt("${AdminPassword}", "$6$random_salt")')"
+
+# It's not passing the ${AdminPassword} variable.
+# SaltPassword="$(python -c 'import crypt; print crypt.crypt("RandomPassword", "$6$random_salt")')"
+# The password would be RandomPassword
+
+# mysql -p${Panel} -u panel -D panel -e "UPDATE user SET password='${SaltPassword}' WHERE name='admin';"
+# mysql -p${Daemon} -u daemon -D daemon -e "UPDATE ftp_user SET password='${SaltPassword}' WHERE name='admin';"
