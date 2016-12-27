@@ -162,3 +162,6 @@ echo
 echo
  
 
+echo "Exiting MultiCraft centos 7 installer script!"
+ sleep 1
+  quit
