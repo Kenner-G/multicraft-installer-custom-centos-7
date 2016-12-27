@@ -40,57 +40,59 @@ Troubleshooting Multicarft problmes
 
 Error 500 CDbConnection failed to open the DB connection
 
-    If you are using SQLite
-
-    This might be a permission issue or a problem with the PHP "open_basedir" setting. When running the front end installer you will get     a more detailed error message.
-    Please make sure that the web user can access the database file
-    Another problem could be that your PHP installation lacks SQLite support. In this case installing the PHP5 SQLite PDO support (in       Debian using "aptitude install php5-sqlite") followed by a restart of the webserver should help.
-    If you are using MySQL
-    Your PHP installation needs MySQL PDO support, please check that this core extension is enabled
-    Please make sure the username/password combination is correct and has enough privileges to access the specified database
-    If you're using "localhost" as the database host try "127.0.0.1" and vice versa
+If you are using SQLite
+This might be a permission issue or a problem with the PHP "open_basedir" setting. When running the front end installer you will get a more detailed error message.
+Please make sure that the web user can access the database file
+Another problem could be that your PHP installation lacks SQLite support. In this case installing the PHP5 SQLite PDO support (in Debian using "aptitude install php5-sqlite") followed by a restart of the webserver should help.
+If you are using MySQL
+Your PHP installation needs MySQL PDO support, please check that this core extension is enabled
+Please make sure the username/password combination is correct and has enough privileges to access the specified database
+If you're using "localhost" as the database host try "127.0.0.1" and vice versa
 
 Can't connect to Minecraft bridge! (110/111: Connection refused/timed out)
 ===================
 
-    Please check the following:
-    The daemon is running
-    Check the Multicraft status under "Settings"->"Multicraft Status", the IP and Port shown there have to match the IP/Port the daemon     listens on
-    You can connect to the daemon from the machine running the front end by running "telnet IP PORT", where where IP and PORT are the       values you use in the config file.
-    The daemon is not blocked by any firewall
-    Your panel machine can connect to the daemon machine. This requires PHP to be able to open outgoing TCP connections using          "     "pfsockopen". If the panel is hosted with a hosting provider please contact them to check if this is possible.
-    Some explanation on the "ip" setting in "multicraft.conf":
-    The "ip" setting specifies which interface the daemon will listen on, the "externalIp" setting specifies which IP the control panel     will try to connect to. If "ip" is set to "127.0.0.1" only a control panel on the same machine can connect to the daemon. To listen     on all interfaces you can set "ip" to "0.0.0.0", however, you will have to set "externalIp" when you do that so the control panel       knows where to connect.
+Please check the following:
+The daemon is running
+Check the Multicraft status under "Settings"->"Multicraft Status", the IP and Port shown there have to match the IP/Port the daemon listens on
+You can connect to the daemon from the machine running the front end by running "telnet IP PORT", where where IP and PORT are the values you use in the config file.
+The daemon is not blocked by any firewall
+Your panel machine can connect to the daemon machine. This requires PHP to be able to open outgoing TCP connections using "pfsockopen". If the panel is hosted with a hosting provider please contact them to check if this is possible.
+Some explanation on the "ip" setting in "multicraft.conf":
+The "ip" setting specifies which interface the daemon will listen on, the "externalIp" setting specifies which IP the control panel will try to connect to. If "ip" is set to "127.0.0.1" only a control panel on the same machine can connect to the daemon. To listen on all interfaces you can set "ip" to "0.0.0.0", however, you will have to set "externalIp" when you do that so the control panel knows where to connect.
 
 Unable to access jarfile /home/minecraft/multicraft/jar/craftbukkit.jar
 ===================
 
-    This means that the user running the Minecraft servers can't access the JAR file because of the way the file permissions are set.       The user needs to be able to traverse all intermediate directories up to the JAR file, so they need "execute" permissions for the       directories "/home", "/home/minecraft" and "/home/minecraft/multicraft". Usually the setup.sh script takes care of that but when         upgrading or installing without using the script the permissions could still be wrong. Most of the time the following command will       fix the issue:
+This means that the user running the Minecraft servers can't access the JAR file because of the way the file permissions are set. The user needs to be able to traverse all intermediate directories up to the JAR file, so they need "execute" permissions for the directories "/home", "/home/minecraft" and "/home/minecraft/multicraft". Usually the setup.sh script takes care of that but when upgrading or installing without using the script the permissions could still be wrong. Most of the time the following command will fix the issue:
+
     chmod go+x /home/minecraft/multicraft/jar
-    Replace "/home/minecraft/" with your installation directory if it's different. Also take care not to give anyone but root read           access to your configuration files.
+    
+Replace "/home/minecraft/" with your installation directory if it's different. Also take care not to give anyone but root read access to your configuration files.
+
     
 Couldn't X: No connection for daemon 1
 ===================
 
-    This means that either the panel and the daemon are not using the same database or that the daemon has failed to connect to the         database or that the daemon is simply not running.
+This means that either the panel and the daemon are not using the same database or that the daemon has failed to connect to the database or that the daemon is simply not running.
 
-    During the daemon setup (the setup.sh script) you are asked to enter your database information which is then written to the             multicraft.conf. The same database information has to be used in the panel installer (install.php) as the "Daemon database" (not to     be confused with the "Panel Database"). The information set during the panel installer can be changed later in "
-    "protected/config/config.php".
+During the daemon setup (the setup.sh script) you are asked to enter your database information which is then written to the multicraft.conf. The same database information has to be used in the panel installer (install.php) as the "Daemon database" (not to be confused with the "Panel Database"). The information set during the panel installer can be changed later in "protected/config/config.php".
 
-    Please make sure you have started the daemon as described in the installation instructions.
-    Sometimes this error can also point to a startup issue, for example when running a 32bit program on a 64bit server with the 32bit       libraries missing. To make sure it starts up fine you can start Multicraft in the foreground by using the "-nv" switch, e.g.:
+Please make sure you have started the daemon as described in the installation instructions.
+Sometimes this error can also point to a startup issue, for example when running a 32bit program on a 64bit server with the 32bit libraries missing. To make sure it starts up fine you can start Multicraft in the foreground by using the "-nv" switch, e.g.:
+    
     /home/minecraft/multicraft/bin/multicraft -nv start
 
 The server restarts / The console shows ping timeout
 ===================
 
-    This can be caused by Minecraft crashing or by misbehaving plugins. When a Minecraft server doesn't respond to commands anymore for a certain period of time the server will be restarted. If you think it's just your machine being overloaded and Minecraft hasn't really crashed you can try increasing the "Minecraft Response Timeout" under "Settings"->"Show advanced options".
+This can be caused by Minecraft crashing or by misbehaving plugins. When a Minecraft server doesn't respond to commands anymore for a certain period of time the server will be restarted. If you think it's just your machine being overloaded and Minecraft hasn't really crashed you can try increasing the "Minecraft Response Timeout" under "Settings"->"Show advanced options".
 
-    The same issue can be caused by a plugin that either blocks the server from responding or alters the way the Minecraft console commands are named or what they return. Multicraft comes with support for Craftbukkit as well as several popular plugins but there can always be other plugins that are not yet compatible.
+The same issue can be caused by a plugin that either blocks the server from responding or alters the way the Minecraft console commands are named or what they return. Multicraft comes with support for Craftbukkit as well as several popular plugins but there can always be other plugins that are not yet compatible.
 
-    To run a server that prints the player list in an unrecognized format you can change the setting "Assume Minecraft is still running on" to "Any console output" under "Settings"->"Show Advanced Options". You can also disable the response timeout altogether by setting it to 0. This will effectively disable this kind of crash detection.
+To run a server that prints the player list in an unrecognized format you can change the setting "Assume Minecraft is still running on" to "Any console output" under "Settings"->"Show Advanced Options". You can also disable the response timeout altogether by setting it to 0. This will effectively disable this kind of crash detection.
 
-    Support for such plugins can be added dynamically by altering the .jar.conf file as the whole interaction between Minecraft and Multicraft can be re-mapped in there. If you can identify the plugin causing issues we can evaluate adding support for it to the main release or if it's a niche plugin support can be added specifically for your setup.
+Support for such plugins can be added dynamically by altering the .jar.conf file as the whole interaction between Minecraft and Multicraft can be re-mapped in there. If you can identify the plugin causing issues we can evaluate adding support for it to the main release or if it's a niche plugin support can be added specifically for your setup.
 
 I can't access http://localhost/ or I see error 504 under Windows
 ===================
@@ -115,7 +117,7 @@ If it is installed and you still have issues please see the troubleshooting entr
 Under Linux this means that you don't have Java installed or accessible by the user running Minecraft. Please consult your system documentation on how to install Java.
 Under Windows this means that either Java is not installed or it can't be found by Multicraft because the path to Java is not in the PATH environment variable for 32bit applications. You change the path Multicraft uses to start Java by editing your multicraft.conf and changing the "java =" line to:
 
-java = C:\Program Files\Java\jre7\bin\java.exe
+    java = C:\Program Files\Java\jre7\bin\java.exe
 
 Replace the path with the path to your Java.exe.
 
@@ -162,8 +164,9 @@ Can't connect to Minecraft bridge! (13: Permission denied)
 ===================
 
 Most probably you have SELinux installed. Multicraft needs to be able to connect to the daemon by opening a socket connection. To allow this run the following:
-setsebool -P httpd_can_network_connect 1
-setsebool -P httpd_can_network_connect_db 1
+
+    setsebool -P httpd_can_network_connect 1
+    setsebool -P httpd_can_network_connect_db 1
 
 Uploading JAR files doesn't work: "Permission denied (file type access restricted)"
 ===================
@@ -194,10 +197,11 @@ If this downloads a file or shows some SQL statements then you must do either a)
 Suggested solutions:
 a) Enable the webserver to use the .htaccess file. This is usually done in your main Apache config file or in the config file of your website (apache2/sites-enabled/X) by changing "AllowOverride None" to "AllowOverride All" for your www directory or just adding this statement if it doesn't exist yet. A restart/reload of Apache is required after this.
 For users of other webservers a different method might apply, please consult your webserver documentation for this. For example, with Nginx, adding the following code to the configuration should work:
-location /protected {
-    deny all;
-    return 404;
-}
+
+    location /protected {
+        deny all;
+        return 404;
+   
 
 b) Move the "protected" folder outside of the web accessible directories and change all paths in your index.php and api.php accordingly so the application still runs as usual.
 
