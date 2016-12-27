@@ -360,3 +360,13 @@ accept and allow your user to back up mcpe and mcpc worlds.
     /home/minecraft/multicraft/bin/multicraft start
 
 
+Helpfull links
+===================
+https://www.multicraft.org/
+https://www.multicraft.org/site/docs/install
+https://www.multicraft.org/site/docs/upgrade
+https://www.multicraft.org/site/docs/howto
+https://www.multicraft.org/site/docs/troubleshooting
+https://www.multicraft.org/site/page/news
+
+
