@@ -75,16 +75,16 @@ Couldn't X: No connection for daemon 1
 The server restarts / The console shows ping timeout
 ===================
 
-This can be caused by Minecraft crashing or by misbehaving plugins. When a Minecraft server doesn't respond to commands anymore for a certain period of time the server will be restarted. If you think it's just your machine being overloaded and Minecraft hasn't really crashed you can try increasing the "Minecraft Response Timeout" under "Settings"->"Show advanced options".
+    This can be caused by Minecraft crashing or by misbehaving plugins. When a Minecraft server doesn't respond to commands anymore for a certain period of time the server will be restarted. If you think it's just your machine being overloaded and Minecraft hasn't really crashed you can try increasing the "Minecraft Response Timeout" under "Settings"->"Show advanced options".
 
-The same issue can be caused by a plugin that either blocks the server from responding or alters the way the Minecraft console commands are named or what they return. Multicraft comes with support for Craftbukkit as well as several popular plugins but there can always be other plugins that are not yet compatible.
+    The same issue can be caused by a plugin that either blocks the server from responding or alters the way the Minecraft console commands are named or what they return. Multicraft comes with support for Craftbukkit as well as several popular plugins but there can always be other plugins that are not yet compatible.
 
-To run a server that prints the player list in an unrecognized format you can change the setting "Assume Minecraft is still running on" to "Any console output" under "Settings"->"Show Advanced Options". You can also disable the response timeout altogether by setting it to 0. This will effectively disable this kind of crash detection.
+    To run a server that prints the player list in an unrecognized format you can change the setting "Assume Minecraft is still running on" to "Any console output" under "Settings"->"Show Advanced Options". You can also disable the response timeout altogether by setting it to 0. This will effectively disable this kind of crash detection.
 
-Support for such plugins can be added dynamically by altering the .jar.conf file as the whole interaction between Minecraft and Multicraft can be re-mapped in there. If you can identify the plugin causing issues we can evaluate adding support for it to the main release or if it's a niche plugin support can be added specifically for your setup.
-
+    Support for such plugins can be added dynamically by altering the .jar.conf file as the whole interaction between Minecraft and Multicraft can be re-mapped in there. If you can identify the plugin causing issues we can evaluate adding support for it to the main release or if it's a niche plugin support can be added specifically for your setup.
 
 I can't access http://localhost/ or I see error 504 under Windows
+===================
 
 Your system might be missing the Visual C++ 2008 runtime, you can download it from here:
 Visual C++ 2008 Redistributable Package
