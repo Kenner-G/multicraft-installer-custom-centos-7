@@ -168,6 +168,6 @@ echo "Exiting MultiCraft centos 7 installer script!"
  sleep 1
   quit
 else
-  echo "Oh well, you don't want to use our installer. See ya!";
+  echo "Oh well, you do not want to use our installer. See ya!";
   cd ~
 fi
