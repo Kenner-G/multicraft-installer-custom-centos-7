@@ -22,7 +22,7 @@ echo "Custom coded and edited by David Brockway."
 echo
 echo
 
-echo "updating centos OS"
+echo "Updating your centos system os1"
 
  sleep 1
 
