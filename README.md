@@ -5,7 +5,16 @@ Multicraft custom installer for centos 7. This script will install all the compo
 
 I have attached PocketMine, Genisys, ImagicalMine Phar, Config Files Also Included the php binarys files working
 
+Pull Requests
+=============
+PHP accepts pull requests via github. Discussions are done on github, but
+depending on the topic can also be relayed to the official developer
+mailing list david.brockway@megabytehosting.net
+New features require approval and must be accepted by the developers.
 
+Bug fixes **do not** require an issue, to be open a a developher will
+give you support and try to fix the issue you have. 
+                         
 Instructions Step 1
 ===================
 1. Conect to your ftp server.
