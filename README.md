@@ -293,7 +293,7 @@ For example, the default "command" setting for Craftbukkit would be:
 For a modpack with additional PermGen space requirements you could change that to:
 
     [start]
-    command = "{JAVA}" -Xmx{MAX_MEMORY}M -Xms{START_MEMORY}M -XX:PermSize=256M -XX:MaxPermSize=512M -     Djline.terminal=jline.UnsupportedTerminal -jar "{JAR}" nogui
+    command = "{JAVA}" -Xmx{MAX_MEMORY}M -Xms{START_MEMORY}M -XX:PermSize=256M -XX:MaxPermSize=512M -   Djline.terminal=jline.UnsupportedTerminal -jar "{JAR}" nogui
 
 CException: Application runtime path "protected/runtime" is not valid
 ===================
