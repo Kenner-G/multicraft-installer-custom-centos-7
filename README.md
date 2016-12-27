@@ -306,6 +306,7 @@ chcon -u user_u -r object_r -t httpd_sys_content_t /var/www/multicraft
 Replace "/var/www/multicraft" with the path to your panel if it's different. 
 
 I can't backup minecraft pe server worlds but i can back up minecraft pc worlds.
+===================
 
 This is becuase by defult the multicraft.conf only has a command to back up minecraft pc servers worlds.
 Don't worrie we came up with our own custom command that will allow you to abck up mcpe and mcpc server 
@@ -356,5 +357,6 @@ commandWin = "{MULTICRAFT_DIR}\bin\zip.exe" -qr "{WORLD}-tmp.zip" "{WORLD}"*/
 Now just restart the multicraft daemon with the following command and your ready to 
 accept and allow your user to back up mcpe and mcpc worlds.
 
+    /home/minecraft/multicraft/bin/multicraft start
 
 
