@@ -108,7 +108,7 @@ echo "Downloading Multicraft"
 
 
 echo "Extracting multicraft"
- sleep 1
+ sleep 2
   tar -xzf multicraft*.tar.gz
 
 
@@ -117,7 +117,7 @@ echo "Extracting multicraft"
 
 
 echo "Running multicraft install script"
- sleep 1
+ sleep 4
   sudo ./setup.sh
 
 echo "Now Create Database
@@ -127,7 +127,7 @@ Open Tab database tab in phpmyadmin. Then create database: multicraft_panel and 
 
 echo "Multicraft Install.php
 Continue the setup in http://your_server_ip/html/multicraft/install.php"
- sleep 1
+ sleep 4
  
 echo "Multicraft Install.php instructions, 
 1. Press Continue.
@@ -138,7 +138,7 @@ echo "Multicraft Install.php instructions,
 6. In Basic Configuration go to Password for daemon connections and Enter the password you created for the Daemon in Step:9-10 Default Password: none
 7. Press Save and Continue.
 8. Open Terminal - (PuTTy) and start the Daemon(s)."
- sleep 1
+ sleep 5
 
 echo "Starting multicraft daemon"
  sleep 1
