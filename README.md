@@ -314,45 +314,45 @@ worlds.
 
 Locate your multicraft.conf file and find a section called ## Backup settings.
 
-## Backup settings
-[backup]
-## The command to run a backup. The following variables can be used:
-## - {WORLD} The name of the world being backed up
-## - {SERVER_DIR} The directory of the server (working directory)
-## - {MULTICRAFT_DIR} The Multicraft base directory ("baseDir" above)
-## - {BASE_DIR} The directory containing all the servers ("serversDir above")
-## Note that the resulting files is expected to be named "{WORLD}-tmp.zip"
-command = /usr/bin/zip -qr "{WORLD}-tmp.zip" . -i "{WORLD}"*/*
-## The same setting for Windows systems
-commandWin = "{MULTICRAFT_DIR}\bin\zip.exe" -qr "{WORLD}-tmp.zip" "{WORLD}"*/
-## Uncomment the following commands to backup the entire server directory
-## instead of just the current world
-## command = /usr/bin/zip -qr "{WORLD}-tmp.zip" .
-## commandWin = "{MULTICRAFT_DIR}\bin\zip.exe" -qr "{WORLD}-tmp.zip" .
+    ## Backup settings
+    [backup]
+    ## The command to run a backup. The following variables can be used:
+    ## - {WORLD} The name of the world being backed up
+    ## - {SERVER_DIR} The directory of the server (working directory)
+    ## - {MULTICRAFT_DIR} The Multicraft base directory ("baseDir" above)
+    ## - {BASE_DIR} The directory containing all the servers ("serversDir above")
+    ## Note that the resulting files is expected to be named "{WORLD}-tmp.zip"
+    command = /usr/bin/zip -qr "{WORLD}-tmp.zip" . -i "{WORLD}"*/*
+    ## The same setting for Windows systems
+    commandWin = "{MULTICRAFT_DIR}\bin\zip.exe" -qr "{WORLD}-tmp.zip" "{WORLD}"*/
+    ## Uncomment the following commands to backup the entire server directory
+    ## instead of just the current world
+    ## command = /usr/bin/zip -qr "{WORLD}-tmp.zip" .
+    ## commandWin = "{MULTICRAFT_DIR}\bin\zip.exe" -qr "{WORLD}-tmp.zip" .
 
 Now you need to change command = /usr/bin/zip -qr "{WORLD}-tmp.zip" . -i "{WORLD}"*/* 
 to the following command below.
 
-    /usr/bin/zip -qr "{WORLD}-tmp.zip" . -i "{WORLD}"*/* "worlds/*"
+    command = /usr/bin/zip -qr "{WORLD}-tmp.zip" . -i "{WORLD}"*/* "worlds/*"
     
 After you have done that your multicraft.conf ## Backup settings code shoud look like 
 the following below.
 
-## Backup settings
-[backup]
-## The command to run a backup. The following variables can be used:
-## - {WORLD} The name of the world being backed up
-## - {SERVER_DIR} The directory of the server (working directory)
-## - {MULTICRAFT_DIR} The Multicraft base directory ("baseDir" above)
-## - {BASE_DIR} The directory containing all the servers ("serversDir above")
-## Note that the resulting files is expected to be named "{WORLD}-tmp.zip"
-command = /usr/bin/zip -qr "{WORLD}-tmp.zip" . -i "{WORLD}"*/* "worlds/*"
-## The same setting for Windows systems
-commandWin = "{MULTICRAFT_DIR}\bin\zip.exe" -qr "{WORLD}-tmp.zip" "{WORLD}"*/
-## Uncomment the following commands to backup the entire server directory
-## instead of just the current world
-## command = /usr/bin/zip -qr "{WORLD}-tmp.zip" .
-## commandWin = "{MULTICRAFT_DIR}\bin\zip.exe" -qr "{WORLD}-tmp.zip" .
+    ## Backup settings
+    [backup]
+    ## The command to run a backup. The following variables can be used:
+    ## - {WORLD} The name of the world being backed up
+    ## - {SERVER_DIR} The directory of the server (working directory)
+    ## - {MULTICRAFT_DIR} The Multicraft base directory ("baseDir" above)
+    ## - {BASE_DIR} The directory containing all the servers ("serversDir above")
+    ## Note that the resulting files is expected to be named "{WORLD}-tmp.zip"
+    command = /usr/bin/zip -qr "{WORLD}-tmp.zip" . -i "{WORLD}"*/* "worlds/*"
+    ## The same setting for Windows systems
+    commandWin = "{MULTICRAFT_DIR}\bin\zip.exe" -qr "{WORLD}-tmp.zip" "{WORLD}"*/
+    ## Uncomment the following commands to backup the entire server directory
+    ## instead of just the current world
+    ## command = /usr/bin/zip -qr "{WORLD}-tmp.zip" .
+    ## commandWin = "{MULTICRAFT_DIR}\bin\zip.exe" -qr "{WORLD}-tmp.zip" .
 
 Now just restart the multicraft daemon with the following command and your ready to 
 accept and allow your user to back up mcpe and mcpc worlds.
