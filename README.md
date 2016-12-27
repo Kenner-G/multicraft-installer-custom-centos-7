@@ -201,7 +201,7 @@ For users of other webservers a different method might apply, please consult you
     location /protected {
         deny all;
         return 404;
-   
+    }
 
 b) Move the "protected" folder outside of the web accessible directories and change all paths in your index.php and api.php accordingly so the application still runs as usual.
 
@@ -215,7 +215,9 @@ The log shows "Failed to initialize server"
 
 This error message can have multiple causes, you will find a more detailed error message in the multicraft.log of your daemon.
 The most common cause is that the files in the server directory of that server have the wrong owner. Please make sure the files are owned by the user/group mcX:mcX where X is the server ID. For example, the files of server 1 should be owned by mc1:mc1, so the example command to fix the permissions for server1 with the base directory "server1" would be:
-chown -R mc1:mc1 /home/minecraft/multicraft/servers/server1
+
+    chown -R mc1:mc1 /home/minecraft/multicraft/servers/server1
+
 Please note that a recursive chown on untrusted files is not safe and that these paths might be different for your installation.
 
 If the multicraft.log shows an error with the "useragent.conf" please see the entry below.
@@ -224,8 +226,10 @@ The multicraft.log shows "useragent.conf: Permission denied"
 ===================
 
 This means that the program bin/useragent doesn't have the correct permissions to access the config file mentioned. Please make sure the file bin/useragent is owned by root with the group set to the Multicraft user and that it has the correct permissions. For example:
-# chown root:minecraft bin/useragent
-# chmod 4550 bin/useragent
+
+    # chown root:minecraft bin/useragent
+    # chmod 4550 bin/useragent
+
 Please note that the order of these commands is important. Doing the chown afterwards will alter the permissions set using the chmod.
 
 No resource display. The multicraft.log shows "Failed to calculate resource usage"
@@ -235,7 +239,9 @@ The resource display can be disabled by setting "Minimum time between two resour
 
 Another possibility is that your system does not allow the user running Multicraft to access the files in /proc/PID (PID is the process ID of the Minecraft server, so for example /proc/517/status. Access to these files is required for calculating the resource usage and by default this should not be a problem on any Linux system.
 You can check whether this is a problem on your system by running the following command:
-su - minecraft -c 'cat /proc/123/stat'
+
+    su - minecraft -c 'cat /proc/123/stat'
+
 Where "minecraft" would be the user running the daemon and "123" would be the PID of a Minecraft server (you can see the PID in the panel server view).
 
 It is possible that your dedicated server uses a different kernel that doesn't allow access to these files for other processes. Please contact your server provider if this might be the case.
@@ -274,16 +280,20 @@ Make sure your .conf and JAR files are up to date under Settings->Update Minecra
 ===================
 
 Some mods require additional PermGen space, you can increase the default limit by adding the following to the "command" setting in the .jar.conf file used by your server:
--XX:PermSize=256M -XX:MaxPermSize=512M
+
+    -XX:PermSize=256M -XX:MaxPermSize=512M
+
 You can try different values instead of 256M and 512M to see what works best for your server.
 
 For example, the default "command" setting for Craftbukkit would be:
-[start]
-command = "{JAVA}" -Xmx{MAX_MEMORY}M -Xms{START_MEMORY}M -Djline.terminal=jline.UnsupportedTerminal -jar "{JAR}" nogui
+
+    [start]
+    command = "{JAVA}" -Xmx{MAX_MEMORY}M -Xms{START_MEMORY}M -Djline.terminal=jline.UnsupportedTerminal -jar "{JAR}" nogui
 
 For a modpack with additional PermGen space requirements you could change that to:
-[start]
-command = "{JAVA}" -Xmx{MAX_MEMORY}M -Xms{START_MEMORY}M -XX:PermSize=256M -XX:MaxPermSize=512M -Djline.terminal=jline.UnsupportedTerminal -jar "{JAR}" nogui
+
+    [start]
+    command = "{JAVA}" -Xmx{MAX_MEMORY}M -Xms{START_MEMORY}M -XX:PermSize=256M -XX:MaxPermSize=512M -     Djline.terminal=jline.UnsupportedTerminal -jar "{JAR}" nogui
 
 CException: Application runtime path "protected/runtime" is not valid
 ===================
