@@ -4,19 +4,24 @@ Multicraft custom installer for centos 7. This script will install all the compo
 I have atatched PocketMine, Genisys, ImagicalMine Phars, Config Files Also Included the php binarys files working.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-Instructions
+Instructions Step 1
 
-1. Uplaod the script to the server /root directory.
-2. Chnage the script file permition with this command chmod 777 /root/mc,custom,install,script.sh
-3. Let the installer run and do what it says you need to do.
+1. Conect to your ftp server.
+2. Upload the script to the server /root directory.
+4. Open putty ssh conection to your server.
+5. Change the script file permition with this command. chmod 777 /root/mc,custom,install,script.sh
+6. Run the following command to start the script ./mc,custom,install,script.sh
+7. Let the installer run and follow the instructions it tells you to complete.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-PocketMine, Genisys, ImagicalMine installation instructions.
+PocketMine, Genisys, ImagicalMine installation instructions. Step 2
 
 1. Downalod MCPE Jars ,PHP Files,Pocketmine, Genisys, Imagicalmine.zip to you pc.
 2. Extraxct MCPE Jars ,PHP Files,Pocketmine, Genisys, Imagicalminezip file to your pc download folder.
 3. open the folder called MCPE Jars ,PHP Files,Pocketmine, Genisys, Imagicalmine.zip
 4. Conect to your ftp server.
-5. Go to thye following  /home/minecraft/multicraft/jar
+5. Go to the following directory /home/minecraft/multicraft/jar
+6. Open putty ssh conection to your server
+7. Run the following command. chmod go+x /home/minecraft/multicraft/jar/bin/php7/bin
 
 
