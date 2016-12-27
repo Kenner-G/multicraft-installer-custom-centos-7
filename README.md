@@ -15,8 +15,8 @@ Instructions Step 1
 6. Run the following command to start the script ./mc-installer.sh
 7. Let the installer run and follow the instructions it tells you to complete.
 
-===================
 PocketMine, Genisys, ImagicalMine installation instructions. Step 2
+===================
 
 1. Downalod MCPE Jars ,PHP Files,Pocketmine, Genisys, Imagicalmine.zip to you pc.
 2. Extraxct MCPE Jars ,PHP Files,Pocketmine, Genisys, Imagicalminezip file to your pc download folder.
@@ -26,10 +26,9 @@ PocketMine, Genisys, ImagicalMine installation instructions. Step 2
 6. Open putty ssh conection to your server
 7. Run the following command. chmod go+x /home/minecraft/multicraft/jar/bin/php7/bin
 
-===================
 Troubleshooting Multicarft problmes
-
 ===================
+
 Error 500 CDbConnection failed to open the DB connection
 
     If you are using SQLite
@@ -41,9 +40,9 @@ Error 500 CDbConnection failed to open the DB connection
     Your PHP installation needs MySQL PDO support, please check that this core extension is enabled
     Please make sure the username/password combination is correct and has enough privileges to access the specified database
     If you're using "localhost" as the database host try "127.0.0.1" and vice versa
-    
-===================
+
 Can't connect to Minecraft bridge! (110/111: Connection refused/timed out)
+===================
 
     Please check the following:
     The daemon is running
@@ -54,26 +53,27 @@ Can't connect to Minecraft bridge! (110/111: Connection refused/timed out)
     Some explanation on the "ip" setting in "multicraft.conf":
     The "ip" setting specifies which interface the daemon will listen on, the "externalIp" setting specifies which IP the control panel     will try to connect to. If "ip" is set to "127.0.0.1" only a control panel on the same machine can connect to the daemon. To listen     on all interfaces you can set "ip" to "0.0.0.0", however, you will have to set "externalIp" when you do that so the control panel       knows where to connect.
 
-===================
 Unable to access jarfile /home/minecraft/multicraft/jar/craftbukkit.jar
+===================
 
-This means that the user running the Minecraft servers can't access the JAR file because of the way the file permissions are set. The user needs to be able to traverse all intermediate directories up to the JAR file, so they need "execute" permissions for the directories "/home", "/home/minecraft" and "/home/minecraft/multicraft". Usually the setup.sh script takes care of that but when upgrading or installing without using the script the permissions could still be wrong. Most of the time the following command will fix the issue:
-chmod go+x /home/minecraft
-Replace "/home/minecraft/" with your installation directory if it's different. Also take care not to give anyone but root read access to your configuration files.
-
-
+    This means that the user running the Minecraft servers can't access the JAR file because of the way the file permissions are set.       The user needs to be able to traverse all intermediate directories up to the JAR file, so they need "execute" permissions for the       directories "/home", "/home/minecraft" and "/home/minecraft/multicraft". Usually the setup.sh script takes care of that but when         upgrading or installing without using the script the permissions could still be wrong. Most of the time the following command will       fix the issue:
+    chmod go+x /home/minecraft/multicraft/jar
+    Replace "/home/minecraft/" with your installation directory if it's different. Also take care not to give anyone but root read           access to your configuration files.
+    
 Couldn't X: No connection for daemon 1
+===================
 
-This means that either the panel and the daemon are not using the same database or that the daemon has failed to connect to the database or that the daemon is simply not running.
+    This means that either the panel and the daemon are not using the same database or that the daemon has failed to connect to the         database or that the daemon is simply not running.
 
-During the daemon setup (the setup.sh script) you are asked to enter your database information which is then written to the multicraft.conf. The same database information has to be used in the panel installer (install.php) as the "Daemon database" (not to be confused with the "Panel Database"). The information set during the panel installer can be changed later in "protected/config/config.php".
+    During the daemon setup (the setup.sh script) you are asked to enter your database information which is then written to the             multicraft.conf. The same database information has to be used in the panel installer (install.php) as the "Daemon database" (not to     be confused with the "Panel Database"). The information set during the panel installer can be changed later in "
+    "protected/config/config.php".
 
-Please make sure you have started the daemon as described in the installation instructions.
-Sometimes this error can also point to a startup issue, for example when running a 32bit program on a 64bit server with the 32bit libraries missing. To make sure it starts up fine you can start Multicraft in the foreground by using the "-nv" switch, e.g.:
-/home/minecraft/multicraft/bin/multicraft -nv start
-
+    Please make sure you have started the daemon as described in the installation instructions.
+    Sometimes this error can also point to a startup issue, for example when running a 32bit program on a 64bit server with the 32bit       libraries missing. To make sure it starts up fine you can start Multicraft in the foreground by using the "-nv" switch, e.g.:
+    /home/minecraft/multicraft/bin/multicraft -nv start
 
 The server restarts / The console shows ping timeout
+===================
 
 This can be caused by Minecraft crashing or by misbehaving plugins. When a Minecraft server doesn't respond to commands anymore for a certain period of time the server will be restarted. If you think it's just your machine being overloaded and Minecraft hasn't really crashed you can try increasing the "Minecraft Response Timeout" under "Settings"->"Show advanced options".
 
