@@ -28,7 +28,7 @@ echo "updating centos OS"
 
   yum -y update
 
-
+### Installation
 
 echo "Installing httpd, unzip, zip"
  sleep 1
