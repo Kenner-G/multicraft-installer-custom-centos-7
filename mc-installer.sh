@@ -1,7 +1,5 @@
 #!/bin/bash
 # The GPL License (GPL-3.0)
-
-#/**
 # *
 # *   Copyright © 2010-2016 by MegaByteHosting, BlueLeafHosting, DavidBrockway, Kenner All rights reserved.
 # *   This script is inteneded for the use of megabytehosting and blueleafhosting but you may with to use it we do not give 
