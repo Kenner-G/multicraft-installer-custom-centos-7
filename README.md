@@ -9,8 +9,8 @@ Instructions Step 1
 1. Conect to your ftp server.
 2. Upload the script to the server /root directory.
 4. Open putty ssh conection to your server.
-5. Change the script file permition with this command. chmod 777 /root/mc,custom,install,script.sh
-6. Run the following command to start the script ./mc,custom,install,script.sh
+5. Change the script file permition with this command. chmod 777 /root/mc-installer.sh
+6. Run the following command to start the script ./mc-installer.sh
 7. Let the installer run and follow the instructions it tells you to complete.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
