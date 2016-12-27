@@ -1,11 +1,13 @@
 # Multicraft-installer-custom-centos-7 Version 1.5
-Multicraft custom installer for centos 7. This script will install all the components and packages, dependencies multicraft needs to run. No support this script is intended for megabytehosting and blueleafhosting but your free to use it at your own risk!
+===================
 
-I have atatched PocketMine, Genisys, ImagicalMine Phars, Config Files Also Included the php binarys files working.
+Multicraft custom installer for centos 7. This script will install all the components and packages, dependencies multicraft needs to run. No support this script is intended for megabyte hosting and blueleaf hosting but you're free to use it at your own risk!
 
-----------------------------------------------------------------------------------------------------------------------------------------
+I have attached PocketMine, Genisys, ImagicalMine Phar, Config Files Also Included the php binarys files working
+
+
 # Instructions Step 1
-
+===================
 1. Conect to your ftp server.
 2. Upload the script to the server /root directory.
 4. Open putty ssh conection to your server.
@@ -13,7 +15,7 @@ I have atatched PocketMine, Genisys, ImagicalMine Phars, Config Files Also Inclu
 6. Run the following command to start the script ./mc-installer.sh
 7. Let the installer run and follow the instructions it tells you to complete.
 
-----------------------------------------------------------------------------------------------------------------------------------------
+===================
 # PocketMine, Genisys, ImagicalMine installation instructions. Step 2
 
 1. Downalod MCPE Jars ,PHP Files,Pocketmine, Genisys, Imagicalmine.zip to you pc.
@@ -24,21 +26,25 @@ I have atatched PocketMine, Genisys, ImagicalMine Phars, Config Files Also Inclu
 6. Open putty ssh conection to your server
 7. Run the following command. chmod go+x /home/minecraft/multicraft/jar/bin/php7/bin
 
-----------------------------------------------------------------------------------------------------------------------------------------
-# Troubleshooting Multicarft problmes.
+===================
+# Troubleshooting Multicarft problmes
+===================
 
-Error 500 CDbConnection failed to open the DB connection
+# Error 500 CDbConnection failed to open the DB connection
 
-If you are using SQLite
-This might be a permission issue or a problem with the PHP "open_basedir" setting. When running the front end installer you will get a more detailed error message.
-Please make sure that the web user can access the database file
-Another problem could be that your PHP installation lacks SQLite support. In this case installing the PHP5 SQLite PDO support (in Debian using "aptitude install php5-sqlite") followed by a restart of the webserver should help.
-If you are using MySQL
-Your PHP installation needs MySQL PDO support, please check that this core extension is enabled
-Please make sure the username/password combination is correct and has enough privileges to access the specified database
-If you're using "localhost" as the database host try "127.0.0.1" and vice versa
+    If you are using SQLite
 
-Can't connect to Minecraft bridge! (110/111: Connection refused/timed out)
+    This might be a permission issue or a problem with the PHP "open_basedir" setting. When running the front end installer you will get     a more detailed error message.
+    Please make sure that the web user can access the database file
+    Another problem could be that your PHP installation lacks SQLite support. In this case installing the PHP5 SQLite PDO support (in       Debian using "aptitude install php5-sqlite") followed by a restart of the webserver should help.
+    If you are using MySQL
+    Your PHP installation needs MySQL PDO support, please check that this core extension is enabled
+    Please make sure the username/password combination is correct and has enough privileges to access the specified database
+    If you're using "localhost" as the database host try "127.0.0.1" and vice versa
+    
+===================
+
+# Can't connect to Minecraft bridge! (110/111: Connection refused/timed out)
 
 Please check the following:
 The daemon is running
