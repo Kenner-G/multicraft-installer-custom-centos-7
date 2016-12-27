@@ -4,7 +4,7 @@ Multicraft custom installer for centos 7. This script will install all the compo
 I have atatched PocketMine, Genisys, ImagicalMine Phars, Config Files Also Included the php binarys files working.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-Instructions Step 1
+# Instructions Step 1
 
 1. Conect to your ftp server.
 2. Upload the script to the server /root directory.
@@ -14,7 +14,7 @@ Instructions Step 1
 7. Let the installer run and follow the instructions it tells you to complete.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-PocketMine, Genisys, ImagicalMine installation instructions. Step 2
+# PocketMine, Genisys, ImagicalMine installation instructions. Step 2
 
 1. Downalod MCPE Jars ,PHP Files,Pocketmine, Genisys, Imagicalmine.zip to you pc.
 2. Extraxct MCPE Jars ,PHP Files,Pocketmine, Genisys, Imagicalminezip file to your pc download folder.
@@ -25,7 +25,7 @@ PocketMine, Genisys, ImagicalMine installation instructions. Step 2
 7. Run the following command. chmod go+x /home/minecraft/multicraft/jar/bin/php7/bin
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-Troubleshooting Multicarft problmes.
+# Troubleshooting Multicarft problmes.
 
 Error 500 CDbConnection failed to open the DB connection
 
