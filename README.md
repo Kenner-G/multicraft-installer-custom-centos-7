@@ -304,3 +304,30 @@ The directory is owned by the webserver user ("www-data" for Debian/Ubuntu, "apa
 SELinux can also cause this error, to fix this you can either disable SELinux or run the following command on your front end files:
 chcon -u user_u -r object_r -t httpd_sys_content_t /var/www/multicraft
 Replace "/var/www/multicraft" with the path to your panel if it's different. 
+
+I can't backup minecraft pe server worlds but i can back up minecraft pc worlds.
+
+This is becuase by defult the multicraft.conf only has a command to back up minecraft pc servers worlds.
+Don't worrie we came up with our own custom command that will allow you to abck up mcpe and mcpc server 
+worlds.
+
+Locate your multicraft.conf file and find a section called ## Backup settings.
+
+## Backup settings
+[backup]
+## The command to run a backup. The following variables can be used:
+## - {WORLD} The name of the world being backed up
+## - {SERVER_DIR} The directory of the server (working directory)
+## - {MULTICRAFT_DIR} The Multicraft base directory ("baseDir" above)
+## - {BASE_DIR} The directory containing all the servers ("serversDir above")
+## Note that the resulting files is expected to be named "{WORLD}-tmp.zip"
+command = /usr/bin/zip -qr "{WORLD}-tmp.zip" . -i "{WORLD}"*/*
+## The same setting for Windows systems
+commandWin = "{MULTICRAFT_DIR}\bin\zip.exe" -qr "{WORLD}-tmp.zip" "{WORLD}"*/
+## Uncomment the following commands to backup the entire server directory
+## instead of just the current world
+## command = /usr/bin/zip -qr "{WORLD}-tmp.zip" .
+## commandWin = "{MULTICRAFT_DIR}\bin\zip.exe" -qr "{WORLD}-tmp.zip" .
+
+Now cyou need to change command = /usr/bin/zip -qr "{WORLD}-tmp.zip" . -i "{WORLD}"*/* 
+to the following command below.
