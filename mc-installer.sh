@@ -143,8 +143,22 @@ echo "Multicraft Install.php instructions,
 echo "Starting multicraft daemon"
  sleep 1
   sudo /home/minecraft/multicraft/bin/multicraft start
-  quit
-
   
-
+echo
+echo "***"
+echo "*** You have successfully install Multicraft on centos 7"
+echo "***"
+echo
+echo "This installer will help you get Multicraft up and running also install all the packages and dependencies."
+echo "No changes are made to the system until all of the required information has been collected."
+echo
+echo "NOTE: Thank you for using the custom script to install multicraft centos 7.
+echo "We would we would appreciate if you could share this with your friends to help
+and support this project. Also it shows how easy multicraft is to install on centos 7 with this 
+custom script."
+echo "Created by David Brockway, if you would like to contribute to this project you can do so via my github 
+link https://goo.gl/v8jYNT"
+echo
+echo
+ 
 
