@@ -1,4 +1,4 @@
-# Multicraft-installer-custom-centos-7 Version 1.5
+Multicraft-installer-custom-centos-7 Version 1.5
 ===================
 
 Multicraft custom installer for centos 7. This script will install all the components and packages, dependencies multicraft needs to run. No support this script is intended for megabyte hosting and blueleaf hosting but you're free to use it at your own risk!
@@ -6,7 +6,7 @@ Multicraft custom installer for centos 7. This script will install all the compo
 I have attached PocketMine, Genisys, ImagicalMine Phar, Config Files Also Included the php binarys files working
 
 
-# Instructions Step 1
+Instructions Step 1
 ===================
 1. Conect to your ftp server.
 2. Upload the script to the server /root directory.
