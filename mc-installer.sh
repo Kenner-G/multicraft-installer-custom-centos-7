@@ -2,7 +2,7 @@
 
 #/**
 # *
-# *   Copyright © 2010-2016 by MegaByteHosting, BlueLeafHosting, DavidBrockway All rights reserved.
+# *   Copyright © 2010-2016 by MegaByteHosting, BlueLeafHosting, DavidBrockway, Kenner All rights reserved.
 # *   This script is inteneded for the use of megabytehosting and blueleafhosting but you may with to use it we do not give 
 # *   support to anyone who used this script. We hope you like it use it at your own risk!
 # *   
@@ -156,7 +156,7 @@ echo "NOTE: Thank you for using the custom script to install multicraft centos 7
 echo "We would we would appreciate if you could share this with your friends to help
 and support this project. Also it shows how easy multicraft is to install on centos 7 with this 
 custom script."
-echo "Created by David Brockway, if you would like to contribute to this project you can do so via my github 
+echo "Created by David Brockway and Kenner, if you would like to contribute to this project you can do so via my github 
 link https://goo.gl/v8jYNT"
 echo
 echo
