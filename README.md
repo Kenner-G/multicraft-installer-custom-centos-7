@@ -27,10 +27,10 @@ Instructions Step 1
 7. Run the following command. chmod go+x /home/minecraft/multicraft/jar/bin/php7/bin
 
 ===================
-# Troubleshooting Multicarft problmes
-===================
+Troubleshooting Multicarft problmes
 
-# Error 500 CDbConnection failed to open the DB connection
+===================
+Error 500 CDbConnection failed to open the DB connection
 
     If you are using SQLite
 
@@ -43,19 +43,18 @@ Instructions Step 1
     If you're using "localhost" as the database host try "127.0.0.1" and vice versa
     
 ===================
+Can't connect to Minecraft bridge! (110/111: Connection refused/timed out)
 
-# Can't connect to Minecraft bridge! (110/111: Connection refused/timed out)
+    Please check the following:
+    The daemon is running
+    Check the Multicraft status under "Settings"->"Multicraft Status", the IP and Port shown there have to match the IP/Port the daemon     listens on
+    You can connect to the daemon from the machine running the front end by running "telnet IP PORT", where where IP and PORT are the       values you use in the config file.
+    The daemon is not blocked by any firewall
+    Your panel machine can connect to the daemon machine. This requires PHP to be able to open outgoing TCP connections using          "     "pfsockopen". If the panel is hosted with a hosting provider please contact them to check if this is possible.
+    Some explanation on the "ip" setting in "multicraft.conf":
+    The "ip" setting specifies which interface the daemon will listen on, the "externalIp" setting specifies which IP the control panel     will try to connect to. If "ip" is set to "127.0.0.1" only a control panel on the same machine can connect to the daemon. To listen     on all interfaces you can set "ip" to "0.0.0.0", however, you will have to set "externalIp" when you do that so the control panel       knows where to connect.
 
-Please check the following:
-The daemon is running
-Check the Multicraft status under "Settings"->"Multicraft Status", the IP and Port shown there have to match the IP/Port the daemon listens on
-You can connect to the daemon from the machine running the front end by running "telnet IP PORT", where where IP and PORT are the values you use in the config file.
-The daemon is not blocked by any firewall
-Your panel machine can connect to the daemon machine. This requires PHP to be able to open outgoing TCP connections using "pfsockopen". If the panel is hosted with a hosting provider please contact them to check if this is possible.
-Some explanation on the "ip" setting in "multicraft.conf":
-The "ip" setting specifies which interface the daemon will listen on, the "externalIp" setting specifies which IP the control panel will try to connect to. If "ip" is set to "127.0.0.1" only a control panel on the same machine can connect to the daemon. To listen on all interfaces you can set "ip" to "0.0.0.0", however, you will have to set "externalIp" when you do that so the control panel knows where to connect.
-
-
+===================
 Unable to access jarfile /home/minecraft/multicraft/jar/craftbukkit.jar
 
 This means that the user running the Minecraft servers can't access the JAR file because of the way the file permissions are set. The user needs to be able to traverse all intermediate directories up to the JAR file, so they need "execute" permissions for the directories "/home", "/home/minecraft" and "/home/minecraft/multicraft". Usually the setup.sh script takes care of that but when upgrading or installing without using the script the permissions could still be wrong. Most of the time the following command will fix the issue:
