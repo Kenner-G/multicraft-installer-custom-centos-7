@@ -6,7 +6,7 @@ I have atatched PocketMine, Genisys, ImagicalMine Phars, Config Files Also Inclu
 ----------------------------------------------------------------------------------------------------------------------------------------
 Instructions Step 1
 
-1. Conect to your ftp server.
+1. Connect to your ftp server.
 2. Upload the script to the server /root directory.
 4. Open putty ssh conection to your server.
 5. Change the script file permition with this command. chmod 777 /root/mc-installer.sh
