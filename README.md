@@ -16,7 +16,7 @@ Instructions Step 1
 7. Let the installer run and follow the instructions it tells you to complete.
 
 ===================
-# PocketMine, Genisys, ImagicalMine installation instructions. Step 2
+PocketMine, Genisys, ImagicalMine installation instructions. Step 2
 
 1. Downalod MCPE Jars ,PHP Files,Pocketmine, Genisys, Imagicalmine.zip to you pc.
 2. Extraxct MCPE Jars ,PHP Files,Pocketmine, Genisys, Imagicalminezip file to your pc download folder.
