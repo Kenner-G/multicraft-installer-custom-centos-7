@@ -143,6 +143,8 @@ echo "Multicraft Install.php instructions,
 echo "Starting multicraft daemon"
  sleep 1
   sudo /home/minecraft/multicraft/bin/multicraft start
+  quit
 
   
+
 
