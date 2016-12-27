@@ -1,4 +1,5 @@
 #!/bin/bash
+# The GPL License (GPL-3.0)
 
 #/**
 # *
