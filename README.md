@@ -31,9 +31,9 @@ PocketMine, Genisys, ImagicalMine installation instructions. Step 2
 2. Extraxct MCPE Jars ,PHP Files,Pocketmine, Genisys, Imagicalminezip file to your pc download folder.
 3. open the folder called MCPE Jars ,PHP Files,Pocketmine, Genisys, Imagicalmine.zip
 4. Conect to your ftp server.
-5. Go to the following directory /home/minecraft/multicraft/jar
+5. Run the following command to move directories: /home/minecraft/multicraft/jar
 6. Open putty ssh conection to your server
-7. Run the following command. chmod go+x /home/minecraft/multicraft/jar/bin/php7/bin
+7. Run the following command: chmod go+x /home/minecraft/multicraft/jar/bin/php7/bin
 
 Troubleshooting Multicarft problmes
 ===================
